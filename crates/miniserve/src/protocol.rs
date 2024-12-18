@@ -37,6 +37,7 @@ pub fn stringify_response(response: http::Response<Vec<u8>>) -> Vec<u8> {
     buf
 }
 
+#[allow(clippy::result_large_err)]
 fn parse_request(src: &[u8]) -> Result<Option<http::Request<Vec<u8>>>, http::Response<Vec<u8>>> {
     let mut headers = [httparse::EMPTY_HEADER; 64];
     let mut parsed_req = httparse::Request::new(&mut headers);
